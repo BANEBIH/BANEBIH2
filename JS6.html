@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Робота з використанням циклів</title>
+        <style>
+body {
+    color: black;
+    font-size: 18px;
+    text-align: center;
+    margin: 0;
+    background-image: url('img/Робота з використанням циклів.png');
+    background-size: cover;
+    background-position: center center; 
+    background-repeat: no-repeat;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.7); 
+    border-radius: 20px;
+    padding: 30px 60px;
+    width: 450px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    margin-top: 100px;
+    font-size: 25px;
+    display: inline-block;
+}
+
+.btn {
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #1A1A1A;
+    border-radius: 15px;
+    box-sizing: border-box;
+    color: #000000; 
+    cursor: pointer;
+    font-family: Roobert, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+    margin-top: 10px;
+    outline: none;
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    display: inline-block; 
+}
+
+.btn:disabled {
+    pointer-events: none;
+}
+
+.btn:hover {
+    color: #FFFFFF;
+    background-color: #1A1A1A;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    box-shadow: none;
+    transform: translateY(0);
+}
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Робота з використанням циклів</h1>
+        <div class="input-group">
+            <label for="numGreetings">Кількість привітань:</label>
+            <input type="number" id="numGreetings" placeholder="Введіть кількість">
+            <div class="center-btn"> 
+                <button class="btn" onclick="writeGreetings()">Написати привітання</button>
+            </div>
+            <p id="greetingsResult"></p>
+        </div>
+
+    <div class="input-group">
+            <label for="minRange">Мінімальне число:</label>
+            <input type="number" id="minRange" placeholder="0">
+            <label for="maxRange">Максимальне число:</label>
+            <input type="number" id="maxRange" placeholder="100">
+            <div id="numbersResult"></div>
+            <button class="btn" onclick="writeNumbersInRange()">Вивести числа в діапазоні</button>
+        </div>
+
+        <div class="input-group">
+            <label for="minSum">Мінімальне число для суми:</label>
+            <input type="number" id="minSum" placeholder="0">
+            <label for="maxSum">Максимальне число для суми:</label>
+            <input type="number" id="maxSum" placeholder="100">
+            <p id="sumResult"></p>
+            <button class="btn" onclick="calculateSum()">Обчислити суму чисел</button>
+        </div>
+    </div>
+
+    <script>
+        function writeGreetings() {
+            let inputN = parseInt(document.getElementById('numGreetings').value) || 0;
+            let greetingsResult = '';
+
+            for (let count = 1; count <= inputN; count++) {
+                greetingsResult += `${count}) Слава Україні <br>`;
+            }
+
+            let lastDigit = inputN % 10;
+            let lastTwoDigits = inputN % 100;
+            let word;
+
+            if (lastDigit === 1 && lastTwoDigits !== 11) {
+                word = "раз";
+            } else if (lastDigit >= 2 && lastDigit <= 4 && (lastTwoDigits < 10 || lastTwoDigits >= 20)) {
+                word = "рази";
+            } else {
+                word = "разів";
+            }
+
+            greetingsResult += `Героям слава ${inputN} ${word}`;
+            document.getElementById('greetingsResult').innerHTML = greetingsResult;
+        }
+  function writeNumbersInRange() {
+            let minRange = parseInt(document.getElementById('minRange').value) || 0;
+            let maxRange = parseInt(document.getElementById('maxRange').value) || 100;
+            let numbersResult = '';
+
+            for (let i = minRange; i <= maxRange; i++) {
+                numbersResult += `${i} `;
+            }
+
+            document.getElementById('numbersResult').innerHTML = numbersResult;
+        }
+
+        function calculateSum() {
+            let minSum = parseInt(document.getElementById('minSum').value) || 0;
+            let maxSum = parseInt(document.getElementById('maxSum').value) || 100;
+            let sum = 0;
+
+            for (let i = minSum; i <= maxSum; i++) {
+                sum += i;
+            }
+
+            document.getElementById('sumResult').innerHTML = `Сума чисел в діапазоні від ${minSum} до ${maxSum} дорівнює ${sum}`;
+        }
+    </script>
+</body>
+</html>
