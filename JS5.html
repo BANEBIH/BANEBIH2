@@ -128,7 +128,7 @@ body {
 
         function checkAge() {
             let age = document.getElementById('ageInput').value;
-            if (ageInput >= 18 || ageInput <= 100) {
+            if (ageInput > 18 || ageInput < 100) {
                 document.getElementById('ageResult').innerHTML = 'Вітаю';
             } else {
                 document.getElementById('ageResult').innerHTML = 'На жаль, ви не можете увійти на сайт';
