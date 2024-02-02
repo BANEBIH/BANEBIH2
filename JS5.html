@@ -121,7 +121,7 @@ body {
                 document.getElementById('moneyResult').innerHTML = `На жаль, ви не можете зняти ${money} грн. Ви можете зняти гроші на суму від 50 грн до 3000 грн`;
             } else {
                 let closestMultipleOf50 = (money / 50 | 0) * 50; 
-                document.getElementById('moneyResult').innerHTML = `Мінімальна купюра 50 грн. Тому я заберіть сої ${closestMultipleOf50} грн. А як комісію я візьму ${money - closestMultipleOf50} грн`;
+                document.getElementById('moneyResult').innerHTML = `Мінімальна купюра 50 грн. Тому заберіть свої ${closestMultipleOf50} грн. А як комісію я візьму ${money - closestMultipleOf50} грн`;
             }
         }
 
