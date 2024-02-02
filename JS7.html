@@ -100,9 +100,9 @@ body {
         <div class="input-group">
             <label class="input-label" for="baseNumberInput">Введіть число:</label>
             <input class="input-field" type="number" id="baseNumberInput" placeholder="Введіть число">
-            <label class="input-label" for="exponentInput">Введіть ступінь:</label>
+            <label class="input-label" for="exponentInput">Введіть степінь:</label>
             <input class="input-field" type="number" id="exponentInput" placeholder="Введіть ступінь">
-            <button class="btn" onclick="calculatePower()">Обчислити ступінь числа</button>
+            <button class="btn" onclick="calculatePower()">Обчислити степінь числа</button>
             <p id="powerResult"></p>
         </div>
 
@@ -190,7 +190,7 @@ body {
                 result = result * baseNumber;
             }
 
-            document.getElementById('powerResult').innerHTML = `Число ${baseNumber} в ступені ${exponent} дорівнює ${result}`;
+            document.getElementById('powerResult').innerHTML = `Число ${baseNumber} в степені ${exponent} дорівнює ${result}`;
         }
 
         function generateFibonacciNumbers() {
